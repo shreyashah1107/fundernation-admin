@@ -1,8 +1,10 @@
-import { Inter } from "next/font/google";
+// If google fonts
+// import { Inter } from "next/font/google";
+import "@/sass/fonts.scss";
 import "@/sass/app.scss";
 import DefaultLayout from "@/components/Layout/DefaultLayout";
 
-const inter = Inter({ subsets: ["latin"] });
+// const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
 	title: "Fundernation Admin",
@@ -12,7 +14,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
 	return (
 		<html lang='en'>
-			<body className={inter.className}>
+			<body className=''>
 				<DefaultLayout>{children}</DefaultLayout>
 			</body>
 		</html>
