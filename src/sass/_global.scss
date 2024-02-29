@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --body-bg: 255, 255, 255;
-  --body-color: #233357;
+  	--body-bg: #FFFFFF;
+  	--body-color: #233357;
 }
 
 @layer base {
@@ -16,7 +16,7 @@
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+  	.text-balance {
+    	text-wrap: balance;
+  	}
 }
