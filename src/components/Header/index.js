@@ -25,7 +25,7 @@ const navItems = [
 export default function Header() {
 	return (
 		<header className='sticky top-0 z-999 px-10 flex w-full bg-white shadow-sm'>
-			<div className='flex flex-grow items-center justify-between px-4 py-4'>
+			<div className='flex flex-grow items-center justify-between py-4'>
 				<div className='flex gap-5'>
 					<ul className='flex flex-1 gap-11'>
 						{navItems.map(({ name, href }) => {
