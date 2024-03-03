@@ -14,6 +14,7 @@ import { TbLogout } from "react-icons/tb";
 
 import classNames from "classnames";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 
 // Menu links Array
 const sidebarItems = [
@@ -47,6 +48,8 @@ const sidebarItems = [
 export default function Sidebar() {
 	const [toggleCollapse, setToggleCollapse] = useState(false);
 	const [isCollapsible, setIsCollapsible] = useState(false);
+
+	const isActiveLink = usePathname();
 
 	const wrapperClasses = classNames(
 		"fixed left-0 top-0 z-[9999] flex flex-col h-screen overflow-hidden bg-sidebar text-white shadow-sidebar duration-300",
@@ -130,8 +133,16 @@ export default function Sidebar() {
 						<ul className='flex flex-col flex-1 gap-1.5'>
 							{sidebarItems.map(({ name, href, icon: Icon }) => {
 								return (
-									<li key={name}>
-										<Link href={href} title={name} className={getNavItemClasses}>
+									<li
+										key={name}
+										// className={isActiveLink == href ? "active" : ""}
+									>
+										<Link
+											href={href}
+											title={name}
+											className={`${getNavItemClasses} ${
+												isActiveLink == href ? "active bg-sidebar-link-focus" : ""
+											}`}>
 											<span className='text-sidebar-icon'>
 												<Icon />
 											</span>
@@ -151,7 +162,7 @@ export default function Sidebar() {
 						<ul className='flex flex-col gap-1.5 mt-1.5'>
 							{/* Logout */}
 							<li>
-								<Link href='/' title='Logout' className={getNavItemClasses}>
+								<Link href='#' title='Logout' className={getNavItemClasses}>
 									<span className='text-sidebar-icon'>
 										<TbLogout />
 									</span>
